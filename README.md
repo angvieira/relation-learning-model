@@ -48,6 +48,8 @@ This problem defined some rules:
 
 # Solution
 
+Link from Colab: https://colab.research.google.com/drive/1EnPTbl0xLE8vpR6O11NkUFqs_GjV5NlG#scrollTo=r_I1K8l_DjTO&uniqifier=1
+
 ## Database 
 
 As a database, the following Train Data Set database was used, available at:
@@ -85,7 +87,25 @@ The number of cars varies between 3 and 5. Therefore, attributes referring to pr
 3 1 2 short ushaped 1 rectanglod 2 long openrect 2 rectanglod - - - - - - - - - - 1 0 0 0 0 0 0 0 0 0 west
 
 ### Implementation
-Processing the data
+
+#### Neural Network
+
+For trainning, test and implementation for the neural networks the code uses the TensorFlow libary.
+
+```
+import tensorflow as tf
+import tensorflow.keras as keras
+
+#creating a neural network
+inputs = keras.Input(shape=(1,), name="digits")
+x = tf.keras.layers.Dense(32, activation="relu", name="dense_1")(inputs)
+x = tf.keras.layers.Dense(9, activation="relu", name="dense_2")(x)
+outputs = tf.keras.layers.Dense(1, activation= tf.keras.activations.tanh, name="predictions")(x)
+
+model = keras.Model(inputs=inputs, outputs=outputs)
+```
+
+#### Processing the data
 
 With the trains-transformed.data file the code divides the data according to the inputs of the neural networks.
 
