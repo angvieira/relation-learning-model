@@ -97,10 +97,10 @@ import tensorflow as tf
 import tensorflow.keras as keras
 
 #creating a neural network
-inputs = keras.Input(shape=(1,), name="digits")
-x = tf.keras.layers.Dense(32, activation="relu", name="dense_1")(inputs)
-x = tf.keras.layers.Dense(9, activation="relu", name="dense_2")(x)
-outputs = tf.keras.layers.Dense(1, activation= tf.keras.activations.tanh, name="predictions")(x)
+inputs = keras.Input(shape=(tam,), name="digits")
+x = tf.keras.layers.Dense(20, activation=bipolar_semilinear, name="dense_1")(inputs)
+#x = tf.keras.layers.Dense(9, activation="relu", name="dense_2")(x)
+outputs = tf.keras.layers.Dense(1, activation=bipolar_semilinear, name="predictions")(x)
 
 model = keras.Model(inputs=inputs, outputs=outputs)
 ```
@@ -109,7 +109,8 @@ model = keras.Model(inputs=inputs, outputs=outputs)
 
 With the trains-transformed.data file the code divides the data according to the inputs of the neural networks.
 
-![image](https://user-images.githubusercontent.com/56411274/217053394-c07219d3-9b40-4a66-a2d0-dbf7714d272b.png)
+![image](https://user-images.githubusercontent.com/56411274/217673332-e0b54365-83de-49ac-9c9a-b43c26ac2731.png)
+
 
 ## The neural networks
 
